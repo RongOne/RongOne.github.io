@@ -160,6 +160,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQL中等于和不等于，-is-null-的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/18/SQL中等于和不等于，-is-null-的使用/">SQL中等于和不等于， &#39;=&#39; ,&#39;!=&#39;,&#39;&lt;&gt;&#39;,&#39;is null&#39;....的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/18/SQL中等于和不等于，-is-null-的使用/" class="archive-article-date">
+  	<time datetime="2019-10-18T13:33:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote><p>在数据库查询当中，SQL中不等于使用&lt;&gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询.</p>
+<footer><strong>小桐</strong><cite><a href="https://www.cnblogs.com/1011004519/p/9875060.html" target="_blank" rel="noopener">sql中的等于和不等于， = ,!=,<>,is null....</a></cite></footer></blockquote>
+
+
+<h3 id="不等于："><a href="#不等于：" class="headerlink" title="不等于："></a>不等于：</h3><p>&lt;&gt;，!=，<del>=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&lt;&gt;，!=，^=是可以的，’</del>=’不行,需要注意的是，只有&lt;&gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。</p>
+<p>所以开发中，尽量使用&lt;&gt;表示不等于。</p>
+<h3 id="等于："><a href="#等于：" class="headerlink" title="等于："></a>等于：</h3><p>=</p>
+<p>要进行null的等于判断时，须使用is null 或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 </p>
+        
+          <a class="article-more-a" href="/2019/10/18/SQL中等于和不等于，-is-null-的使用/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/18/SQL中等于和不等于，-is-null-的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-致陈广凤小可爱的一封信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -496,6 +579,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
