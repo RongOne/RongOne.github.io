@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>RONG的博客</title>
+  <icon>https://www.gravatar.com/avatar/01c08c0795e3038f3657dda5fb832765</icon>
+  <subtitle>Don&#39;t think, just solve.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-10-20T14:19:15.847Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Mr.Rong</name>
+    <email>jadl_rhl@163.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL中等于和不等于， &#39;=&#39; ,&#39;!=&#39;,&#39;&lt;&gt;&#39;,&#39;is null&#39;....的使用</title>
+    <link href="http://yoursite.com/2019/10/18/SQL%E4%B8%AD%E7%AD%89%E4%BA%8E%E5%92%8C%E4%B8%8D%E7%AD%89%E4%BA%8E%EF%BC%8C-is-null-%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2019/10/18/SQL中等于和不等于，-is-null-的使用/</id>
+    <published>2019-10-18T13:33:25.000Z</published>
+    <updated>2019-10-20T14:19:15.847Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;&lt;p&gt;在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询.&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;小桐&lt;/strong&gt;&lt;cite&gt;&lt;a href=&quot;https://www.cnblogs.com/1011004519/p/9875060.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;sql中的等于和不等于， = ,!=,&lt;&gt;,is null....&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+
+
+&lt;h3 id=&quot;不等于：&quot;&gt;&lt;a href=&quot;#不等于：&quot; class=&quot;headerlink&quot; title=&quot;不等于：&quot;&gt;&lt;/a&gt;不等于：&lt;/h3&gt;&lt;p&gt;&amp;lt;&amp;gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&amp;lt;&amp;gt;，!=，^=是可以的，~=不行,需要注意的是，只有&amp;lt;&amp;gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。&lt;/p&gt;
+&lt;p&gt;所以开发中，尽量使用&amp;lt;&amp;gt;表示不等于。&lt;/p&gt;
+&lt;h3 id=&quot;等于：&quot;&gt;&lt;a href=&quot;#等于：&quot; class=&quot;headerlink&quot; title=&quot;等于：&quot;&gt;&lt;/a&gt;等于：&lt;/h3&gt;&lt;p&gt;=&lt;/p&gt;
+&lt;p&gt;要进行null的等于判断时，须使用is null 或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="SQL" scheme="http://yoursite.com/tags/SQL/"/>
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle删除用户时候报错ORA-01940无法删除当前已连接用户</title>
+    <link href="http://yoursite.com/2019/10/16/Oracle%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%E6%97%B6%E5%80%99%E6%8A%A5%E9%94%99ORA-01940%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E5%BD%93%E5%89%8D%E5%B7%B2%E8%BF%9E%E6%8E%A5%E7%94%A8%E6%88%B7/"/>
+    <id>http://yoursite.com/2019/10/16/Oracle删除用户时候报错ORA-01940无法删除当前已连接用户/</id>
+    <published>2019-10-16T13:43:02.000Z</published>
+    <updated>2019-10-20T14:07:45.519Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、根据用户名查询v-session表&quot;&gt;&lt;a href=&quot;#1、根据用户名查询v-session表&quot; class=&quot;headerlink&quot; title=&quot;1、根据用户名查询v$session表&quot;&gt;&lt;/a&gt;1、根据用户名查询v$session表&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;select username,sid,serial# from v$session where username=&amp;apos;TECIDREPORTUSER&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;img src=&quot;/2019/10/16/Oracle删除用户时候报错ORA-01940无法删除当前已连接用户/001.png&quot; title=&quot;图1&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库,Oracle" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#基础随笔</title>
+    <link href="http://yoursite.com/2019/10/14/C-%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2019/10/14/C-笔记记录/</id>
+    <published>2019-10-14T13:37:15.000Z</published>
+    <updated>2019-10-20T12:18:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;C-第一天&quot;&gt;&lt;a href=&quot;#C-第一天&quot; class=&quot;headerlink&quot; title=&quot;C#第一天&quot;&gt;&lt;/a&gt;C#第一天&lt;/h2&gt;&lt;h4 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;int //整数类型 只能存储整数&lt;/li&gt;
+&lt;li&gt;double //小数类型 既能存储小数 也能存储整数&lt;/li&gt;
+&lt;li&gt;string //字符串 用来存储多个文本，也可也存储空，需要用双引号&lt;/li&gt;
+&lt;li&gt;string ss = “”;//可以存空&lt;/li&gt;
+&lt;li&gt;char //字符类型 用来存储单个字符，最多最少只能有一个字符&lt;/li&gt;
+&lt;li&gt;char = ‘男’; &lt;/li&gt;
+&lt;li&gt;//金钱类型 值后面要加个m，精度28到29位有效位&lt;/li&gt;
+&lt;li&gt;decimal money = 5000m;
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://yoursite.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+</feed>
