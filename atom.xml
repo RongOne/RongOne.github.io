@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-20T14:19:15.847Z</updated>
+  <updated>2019-10-21T12:01:29.704Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,22 +17,21 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SQL中等于和不等于， &#39;=&#39; ,&#39;!=&#39;,&#39;&lt;&gt;&#39;,&#39;is null&#39;....的使用</title>
-    <link href="http://yoursite.com/2019/10/18/SQL%E4%B8%AD%E7%AD%89%E4%BA%8E%E5%92%8C%E4%B8%8D%E7%AD%89%E4%BA%8E%EF%BC%8C-is-null-%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2019/10/18/SQL中等于和不等于，-is-null-的使用/</id>
+    <title>SQL语句中等于、不等于和空的区别</title>
+    <link href="http://yoursite.com/2019/10/18/SQL%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%AD%89%E4%BA%8E%E3%80%81%E4%B8%8D%E7%AD%89%E4%BA%8E%E5%92%8C%E7%A9%BA%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2019/10/18/SQL语句中等于、不等于和空的区别/</id>
     <published>2019-10-18T13:33:25.000Z</published>
-    <updated>2019-10-20T14:19:15.847Z</updated>
+    <updated>2019-10-21T12:01:29.704Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;&lt;p&gt;在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询.&lt;/p&gt;
 &lt;footer&gt;&lt;strong&gt;小桐&lt;/strong&gt;&lt;cite&gt;&lt;a href=&quot;https://www.cnblogs.com/1011004519/p/9875060.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;sql中的等于和不等于， = ,!=,&lt;&gt;,is null....&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
 
-
-&lt;h3 id=&quot;不等于：&quot;&gt;&lt;a href=&quot;#不等于：&quot; class=&quot;headerlink&quot; title=&quot;不等于：&quot;&gt;&lt;/a&gt;不等于：&lt;/h3&gt;&lt;p&gt;&amp;lt;&amp;gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&amp;lt;&amp;gt;，!=，^=是可以的，~=不行,需要注意的是，只有&amp;lt;&amp;gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。&lt;/p&gt;
-&lt;p&gt;所以开发中，尽量使用&amp;lt;&amp;gt;表示不等于。&lt;/p&gt;
-&lt;h3 id=&quot;等于：&quot;&gt;&lt;a href=&quot;#等于：&quot; class=&quot;headerlink&quot; title=&quot;等于：&quot;&gt;&lt;/a&gt;等于：&lt;/h3&gt;&lt;p&gt;=&lt;/p&gt;
-&lt;p&gt;要进行null的等于判断时，须使用is null 或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;等于：=&lt;/li&gt;
+&lt;li&gt;不等于：尽量使用&amp;lt;&amp;gt;表示不等于。&lt;br&gt;&amp;lt;&amp;gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&amp;lt;&amp;gt;，!=，^=是可以的，~=不行,需要注意的是，只有&amp;lt;&amp;gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。&lt;/li&gt;
+&lt;li&gt;is null和is not null&lt;br&gt;要进行null的等于判断时，须使用is null或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。
     
     </summary>
     
