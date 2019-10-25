@@ -89,7 +89,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/blogImg/favicon.ico?v=5.1.2">
 
 
 
@@ -298,6 +298,202 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rongone.github.io/2019/10/25/【转】JS计算保留小数位数并且不补0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Rong">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/assets/blogImg/IMG_0365.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RONG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/25/【转】JS计算保留小数位数并且不补0/" itemprop="url">【转】JS计算保留小数位数并且不补0</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-25T21:24:40+08:00">
+                2019-10-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-25T21:36:16+08:00">
+                2019-10-25
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  406
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。  </p>
+</blockquote>
+<h4 id="js计算会出现无穷大数的原因"><a href="#js计算会出现无穷大数的原因" class="headerlink" title="js计算会出现无穷大数的原因"></a>js计算会出现无穷大数的原因</h4><p>js中只有Number一种类型，并且 Number采用的时IEEE 754 64位双精度浮点数编码 。比如0.1 + 0.2 = 0.30000000000000004，计算时会把0.1和0.2转换成二进制数，计算后在转成十进制就成了0.30000000000000004。</p>
+<p>将每个浮点数乘以10的N次方，计算完成后再除以10的N次方</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">formatFloat(f,digit)&#123;</span><br><span class="line">    <span class="keyword">let</span> m = <span class="built_in">Math</span>.pow(<span class="number">10</span>, digit);</span><br><span class="line">    <span class="keyword">let</span> num = <span class="built_in">Math</span>.round(f * m) / m;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>f是计算表达式，digit是需要乘以10的多少次方。<br>比如：formatFloat(0.1+0.2,2);<br>return返回的结果是：0.3</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/25/【转】JS计算保留小数位数并且不补0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://rongone.github.io/2019/10/18/SQL语句中等于、不等于和空的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -345,8 +541,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-21T20:01:29+08:00">
-                2019-10-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-25T21:45:08+08:00">
+                2019-10-25
               </time>
             
           </span>
@@ -395,7 +591,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  219
+                  226
                 </span>
               
 
@@ -433,13 +629,11 @@
 
       
         
-          <blockquote><p>在数据库查询当中，SQL中不等于使用&lt;&gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询.</p>
-<footer><strong>小桐</strong><cite><a href="https://www.cnblogs.com/1011004519/p/9875060.html" target="_blank" rel="noopener">sql中的等于和不等于， = ,!=,<>,is null....</a></cite></footer></blockquote>
-
-<ol>
-<li>等于：=</li>
-<li>不等于：尽量使用&lt;&gt;表示不等于。<br>&lt;&gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&lt;&gt;，!=，^=是可以的，~=不行,需要注意的是，只有&lt;&gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。</li>
-<li>is null和is not null<br>要进行null的等于判断时，须使用is null或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。
+          <blockquote>
+<p>在数据库查询当中，SQL中不等于使用&lt;&gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。<br>转自小桐博客 <a href="https://www.cnblogs.com/1011004519/p/9875060.html" target="_blank" rel="noopener">sql中的等于和不等于， ‘=’ ,’!=’,’&lt;&gt;’,’is null’等</a></p>
+</blockquote>
+<h4 id="等于："><a href="#等于：" class="headerlink" title="等于：="></a>等于：=</h4><h4 id="不等于：尽量使用-lt-gt-表示不等于。"><a href="#不等于：尽量使用-lt-gt-表示不等于。" class="headerlink" title="不等于：尽量使用&lt;&gt;表示不等于。"></a>不等于：尽量使用&lt;&gt;表示不等于。</h4><p>&lt;&gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&lt;&gt;，!=，^=是可以的，~=不行,需要注意的是，只有&lt;&gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。</p>
+<h4 id="is-null和is-not-null"><a href="#is-null和is-not-null" class="headerlink" title="is null和is not null"></a>is null和is not null</h4><p>要进行null的等于判断时，须使用is null或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 </p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/10/18/SQL语句中等于、不等于和空的区别/#more" rel="contents">
@@ -449,7 +643,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
     
     
     
@@ -912,7 +1106,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -923,7 +1117,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -934,7 +1128,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

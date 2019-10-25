@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【转】JS计算保留小数位数并且不补0</title>
+    <url>/2019/10/25/%E3%80%90%E8%BD%AC%E3%80%91JS%E8%AE%A1%E7%AE%97%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E6%95%B0%E5%B9%B6%E4%B8%94%E4%B8%8D%E8%A1%A50/</url>
+    <content><![CDATA[<blockquote>
+<p>实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。  </p>
+</blockquote>
+<h4 id="js计算会出现无穷大数的原因"><a href="#js计算会出现无穷大数的原因" class="headerlink" title="js计算会出现无穷大数的原因"></a>js计算会出现无穷大数的原因</h4><p>js中只有Number一种类型，并且 Number采用的时IEEE 754 64位双精度浮点数编码 。比如0.1 + 0.2 = 0.30000000000000004，计算时会把0.1和0.2转换成二进制数，计算后在转成十进制就成了0.30000000000000004。</p>
+<p>将每个浮点数乘以10的N次方，计算完成后再除以10的N次方</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">formatFloat(f,digit)&#123;</span><br><span class="line">    <span class="keyword">let</span> m = <span class="built_in">Math</span>.pow(<span class="number">10</span>, digit);</span><br><span class="line">    <span class="keyword">let</span> num = <span class="built_in">Math</span>.round(f * m) / m;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>f是计算表达式，digit是需要乘以10的多少次方。<br>比如：formatFloat(0.1+0.2,2);<br>return返回的结果是：0.3</p>
+<a id="more"></a>
+<h4 id="toFixed-方法舍入规则"><a href="#toFixed-方法舍入规则" class="headerlink" title="toFixed()方法舍入规则"></a>toFixed()方法舍入规则</h4><p>toFixed()方法使用的是银行家舍入规则。四舍六入五成双，即“4舍6入5凑偶”这里“四”是指≤4 时舍去，”六”是指≥6时进上，”五”指的是根据5后面的数字来定，当5后有数时，舍5入1；当5后无有效数字时，需要分两种情况来讲：①5前为奇数，舍5入1；②5前为偶数，舍5不进。（0是偶数）  </p>
+<h4 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.fixed=<span class="function"><span class="keyword">function</span>(<span class="params">len</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    len=<span class="built_in">isNaN</span>(len)?<span class="number">0</span>:len</span><br><span class="line">    <span class="keyword">var</span> num=<span class="built_in">Math</span>.pow(<span class="number">10</span>,len) </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.round(<span class="keyword">this</span>*num)/num </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">''</span>).fixed()</span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'213412DDD'</span>).fixed()</span><br><span class="line"><span class="number">1234.152354</span>.fixed()</span><br><span class="line"><span class="number">1234.152354</span>.fixed(<span class="number">2</span>)</span><br><span class="line"><span class="number">1234.152354</span>.fixed(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据以上方法就可以既保留小数位数，并且位数不足时不在补0。</strong></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL语句中等于、不等于和空的区别</title>
     <url>/2019/10/18/SQL%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%AD%89%E4%BA%8E%E3%80%81%E4%B8%8D%E7%AD%89%E4%BA%8E%E5%92%8C%E7%A9%BA%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<blockquote><p>在数据库查询当中，SQL中不等于使用&lt;&gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询.</p>
-<footer><strong>小桐</strong><cite><a href="https://www.cnblogs.com/1011004519/p/9875060.html" target="_blank" rel="noopener">sql中的等于和不等于， = ,!=,<>,is null....</a></cite></footer></blockquote>
-
-<ol>
-<li>等于：=</li>
-<li>不等于：尽量使用&lt;&gt;表示不等于。<br>&lt;&gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&lt;&gt;，!=，^=是可以的，~=不行,需要注意的是，只有&lt;&gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。</li>
-<li>is null和is not null<br>要进行null的等于判断时，须使用is null或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 <a id="more"></a>
-例子<br>select * from bl_ip_dt where amount &lt;&gt; 800,这条语句查不出amount等于null 的记录，<br>select * from bl_ip_dt where amount &lt;&gt; 800 or amount is null 才是可以的.</li>
-</ol>
+    <content><![CDATA[<blockquote>
+<p>在数据库查询当中，SQL中不等于使用&lt;&gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。<br>转自小桐博客 <a href="https://www.cnblogs.com/1011004519/p/9875060.html" target="_blank" rel="noopener">sql中的等于和不等于， ‘=’ ,’!=’,’&lt;&gt;’,’is null’等</a></p>
+</blockquote>
+<h4 id="等于："><a href="#等于：" class="headerlink" title="等于：="></a>等于：=</h4><h4 id="不等于：尽量使用-lt-gt-表示不等于。"><a href="#不等于：尽量使用-lt-gt-表示不等于。" class="headerlink" title="不等于：尽量使用&lt;&gt;表示不等于。"></a>不等于：尽量使用&lt;&gt;表示不等于。</h4><p>&lt;&gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&lt;&gt;，!=，^=是可以的，~=不行,需要注意的是，只有&lt;&gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。</p>
+<h4 id="is-null和is-not-null"><a href="#is-null和is-not-null" class="headerlink" title="is null和is not null"></a>is null和is not null</h4><p>要进行null的等于判断时，须使用is null或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 </p>
+<a id="more"></a>
+<p>例子：<br>select * from bl_ip_dt where amount &lt;&gt; 800,这条语句查不出amount等于null 的记录，<br>select * from bl_ip_dt where amount &lt;&gt; 800 or amount is null 才是可以的.</p>
 ]]></content>
       <categories>
         <category>数据库</category>
