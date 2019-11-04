@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -96,18 +103,18 @@
 
 
 
-<meta name="description" content="实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。    js计算会出现无穷大数的原因js中只有Number一种类型，并且 Number采用的时IEEE 754 64位双精度浮点数编码 。比如0.1 + 0.2 = 0.30000000000000004，计算时会把0.1和0.">
+<meta name="description" content="实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转】JS计算保留小数位数并且不补0">
 <meta property="og:url" content="https://rongone.github.io/2019/10/25/【转】JS计算保留小数位数并且不补0/index.html">
 <meta property="og:site_name" content="RONG的博客">
-<meta property="og:description" content="实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。    js计算会出现无穷大数的原因js中只有Number一种类型，并且 Number采用的时IEEE 754 64位双精度浮点数编码 。比如0.1 + 0.2 = 0.30000000000000004，计算时会把0.1和0.">
+<meta property="og:description" content="实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-25T13:36:16.685Z">
+<meta property="og:updated_time" content="2019-11-02T02:18:58.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转】JS计算保留小数位数并且不补0">
-<meta name="twitter:description" content="实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。    js计算会出现无穷大数的原因js中只有Number一种类型，并且 Number采用的时IEEE 754 64位双精度浮点数编码 。比如0.1 + 0.2 = 0.30000000000000004，计算时会把0.1和0.">
+<meta name="twitter:description" content="实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。">
 
 
 
@@ -362,8 +369,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-25T21:36:16+08:00">
-                2019-10-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-02T10:18:58+08:00">
+                2019-11-02
               </time>
             
           </span>
@@ -449,17 +456,16 @@
       
 
       
-        <blockquote>
-<p>实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。  </p>
-</blockquote>
-<h4 id="js计算会出现无穷大数的原因"><a href="#js计算会出现无穷大数的原因" class="headerlink" title="js计算会出现无穷大数的原因"></a>js计算会出现无穷大数的原因</h4><p>js中只有Number一种类型，并且 Number采用的时IEEE 754 64位双精度浮点数编码 。比如0.1 + 0.2 = 0.30000000000000004，计算时会把0.1和0.2转换成二进制数，计算后在转成十进制就成了0.30000000000000004。</p>
+        <p>实际项目当中遇到这样一个问题，就是js计算会出现无穷大小数，所以选择用toFixed(num)方法，其中num设置过大，小数点后位数不够会用0进行补位，用户体验非常不好。  </p>
+<a id="more"></a>
+
+<h1 id="js计算会出现无穷大数的原因"><a href="#js计算会出现无穷大数的原因" class="headerlink" title="js计算会出现无穷大数的原因"></a>js计算会出现无穷大数的原因</h1><p>js中只有Number一种类型，并且 Number采用的时IEEE 754 64位双精度浮点数编码 。比如0.1 + 0.2 = 0.30000000000000004，计算时会把0.1和0.2转换成二进制数，计算后在转成十进制就成了0.30000000000000004。</p>
 <p>将每个浮点数乘以10的N次方，计算完成后再除以10的N次方</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">formatFloat(f,digit)&#123;</span><br><span class="line">    <span class="keyword">let</span> m = <span class="built_in">Math</span>.pow(<span class="number">10</span>, digit);</span><br><span class="line">    <span class="keyword">let</span> num = <span class="built_in">Math</span>.round(f * m) / m;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>f是计算表达式，digit是需要乘以10的多少次方。<br>比如：formatFloat(0.1+0.2,2);<br>return返回的结果是：0.3</p>
-<a id="more"></a>
-<h4 id="toFixed-方法舍入规则"><a href="#toFixed-方法舍入规则" class="headerlink" title="toFixed()方法舍入规则"></a>toFixed()方法舍入规则</h4><p>toFixed()方法使用的是银行家舍入规则。四舍六入五成双，即“4舍6入5凑偶”这里“四”是指≤4 时舍去，”六”是指≥6时进上，”五”指的是根据5后面的数字来定，当5后有数时，舍5入1；当5后无有效数字时，需要分两种情况来讲：①5前为奇数，舍5入1；②5前为偶数，舍5不进。（0是偶数）  </p>
-<h4 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.fixed=<span class="function"><span class="keyword">function</span>(<span class="params">len</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    len=<span class="built_in">isNaN</span>(len)?<span class="number">0</span>:len</span><br><span class="line">    <span class="keyword">var</span> num=<span class="built_in">Math</span>.pow(<span class="number">10</span>,len) </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.round(<span class="keyword">this</span>*num)/num </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">''</span>).fixed()</span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'213412DDD'</span>).fixed()</span><br><span class="line"><span class="number">1234.152354</span>.fixed()</span><br><span class="line"><span class="number">1234.152354</span>.fixed(<span class="number">2</span>)</span><br><span class="line"><span class="number">1234.152354</span>.fixed(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="toFixed-方法舍入规则"><a href="#toFixed-方法舍入规则" class="headerlink" title="toFixed()方法舍入规则"></a>toFixed()方法舍入规则</h1><p>toFixed()方法使用的是银行家舍入规则。四舍六入五成双，即“4舍6入5凑偶”这里“四”是指≤4 时舍去，”六”是指≥6时进上，”五”指的是根据5后面的数字来定，当5后有数时，舍5入1；当5后无有效数字时，需要分两种情况来讲：①5前为奇数，舍5入1；②5前为偶数，舍5不进。（0是偶数）  </p>
+<h1 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.fixed=<span class="function"><span class="keyword">function</span>(<span class="params">len</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    len=<span class="built_in">isNaN</span>(len)?<span class="number">0</span>:len</span><br><span class="line">    <span class="keyword">var</span> num=<span class="built_in">Math</span>.pow(<span class="number">10</span>,len) </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.round(<span class="keyword">this</span>*num)/num </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">''</span>).fixed()</span><br><span class="line"><span class="built_in">Number</span>(<span class="string">'213412DDD'</span>).fixed()</span><br><span class="line"><span class="number">1234.152354</span>.fixed()</span><br><span class="line"><span class="number">1234.152354</span>.fixed(<span class="number">2</span>)</span><br><span class="line"><span class="number">1234.152354</span>.fixed(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 
 <p><strong>根据以上方法就可以既保留小数位数，并且位数不足时不在补0。</strong></p>
 
@@ -602,8 +608,8 @@
     
     <div class="sidebar-inner">
       <div id="music163player">
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=413812448&auto=0&height=66"></iframe>
-        </div>
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=413812448&auto=0&height=66"></iframe>
+      </div>
       
 
       
@@ -701,7 +707,7 @@
               <span class="links-of-author-item">
                 <a href="https://www.zhihu.com/people/rhl2016/activities" target="_blank" title="知乎">
                   
-                    <i class="fa fa-fw fa-zhihu"></i>
+                    <i class="fa fa-fw fa-apple"></i>
                   
                     
                       知乎
@@ -712,7 +718,7 @@
               <span class="links-of-author-item">
                 <a href="http://rhl2008.zcool.com.cn/" target="_blank" title="站酷">
                   
-                    <i class="fa fa-fw fa-lock"></i>
+                    <i class="fa fa-fw fa-apple"></i>
                   
                     
                       站酷
@@ -770,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#js计算会出现无穷大数的原因"><span class="nav-number">1.</span> <span class="nav-text">js计算会出现无穷大数的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toFixed-方法舍入规则"><span class="nav-number">2.</span> <span class="nav-text">toFixed()方法舍入规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最终解决方案"><span class="nav-number">3.</span> <span class="nav-text">最终解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js计算会出现无穷大数的原因"><span class="nav-number">1.</span> <span class="nav-text">js计算会出现无穷大数的原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#toFixed-方法舍入规则"><span class="nav-number">2.</span> <span class="nav-text">toFixed()方法舍入规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终解决方案"><span class="nav-number">3.</span> <span class="nav-text">最终解决方案</span></a></li></ol></div>
             
 
           </div>
@@ -869,7 +875,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="true"></script>
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

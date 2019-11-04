@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -96,18 +103,18 @@
 
 
 
-<meta name="description" content="在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。转自小桐博客 sql中的等于和不等于， ‘=’ ,’!=’,’&amp;lt;&amp;gt;’,’is null’等  等于：=不等于：尽量使用&amp;lt;&amp;gt;表示不等于。&amp;lt;&amp;gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&amp;lt;&amp;gt;，">
+<meta name="description" content="在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。">
 <meta name="keywords" content="SQL,数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL语句中等于、不等于和空的区别">
 <meta property="og:url" content="https://rongone.github.io/2019/10/18/SQL语句中等于、不等于和空的区别/index.html">
 <meta property="og:site_name" content="RONG的博客">
-<meta property="og:description" content="在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。转自小桐博客 sql中的等于和不等于， ‘=’ ,’!=’,’&amp;lt;&amp;gt;’,’is null’等  等于：=不等于：尽量使用&amp;lt;&amp;gt;表示不等于。&amp;lt;&amp;gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&amp;lt;&amp;gt;，">
+<meta property="og:description" content="在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-25T13:45:08.228Z">
+<meta property="og:updated_time" content="2019-11-02T02:07:29.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL语句中等于、不等于和空的区别">
-<meta name="twitter:description" content="在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。转自小桐博客 sql中的等于和不等于， ‘=’ ,’!=’,’&amp;lt;&amp;gt;’,’is null’等  等于：=不等于：尽量使用&amp;lt;&amp;gt;表示不等于。&amp;lt;&amp;gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&amp;lt;&amp;gt;，">
+<meta name="twitter:description" content="在数据库查询当中，SQL中不等于使用&amp;lt;&amp;gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。">
 
 
 
@@ -362,8 +369,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-25T21:45:08+08:00">
-                2019-10-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-02T10:07:29+08:00">
+                2019-11-02
               </time>
             
           </span>
@@ -412,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  226
+                  224
                 </span>
               
 
@@ -449,13 +456,12 @@
       
 
       
-        <blockquote>
-<p>在数据库查询当中，SQL中不等于使用&lt;&gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。<br>转自小桐博客 <a href="https://www.cnblogs.com/1011004519/p/9875060.html" target="_blank" rel="noopener">sql中的等于和不等于， ‘=’ ,’!=’,’&lt;&gt;’,’is null’等</a></p>
-</blockquote>
-<h4 id="等于："><a href="#等于：" class="headerlink" title="等于：="></a>等于：=</h4><h4 id="不等于：尽量使用-lt-gt-表示不等于。"><a href="#不等于：尽量使用-lt-gt-表示不等于。" class="headerlink" title="不等于：尽量使用&lt;&gt;表示不等于。"></a>不等于：尽量使用&lt;&gt;表示不等于。</h4><p>&lt;&gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&lt;&gt;，!=，^=是可以的，~=不行,需要注意的是，只有&lt;&gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。</p>
-<h4 id="is-null和is-not-null"><a href="#is-null和is-not-null" class="headerlink" title="is null和is not null"></a>is null和is not null</h4><p>要进行null的等于判断时，须使用is null或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 </p>
+        <p>在数据库查询当中，SQL中不等于使用&lt;&gt;，等于用=，null使用IS NULL和IS NOT NULL进行查询。</p>
 <a id="more"></a>
+<h1 id="等于："><a href="#等于：" class="headerlink" title="等于：="></a>等于：=</h1><h1 id="不等于：尽量使用-lt-gt-表示不等于。"><a href="#不等于：尽量使用-lt-gt-表示不等于。" class="headerlink" title="不等于：尽量使用&lt;&gt;表示不等于。"></a>不等于：尽量使用&lt;&gt;表示不等于。</h1><p>&lt;&gt;，!=，~=，^=这四个符号据说都可以在oracle中表示不等于，但是试了之后发现&lt;&gt;，!=，^=是可以的，~=不行,需要注意的是，只有&lt;&gt;是标准的SQL语法，可以移植，其他的都是Oracle平台的特性，移植性较差。</p>
+<h1 id="IS-NULL和IS-NOT-NULL"><a href="#IS-NULL和IS-NOT-NULL" class="headerlink" title="IS NULL和IS NOT NULL"></a>IS NULL和IS NOT NULL</h1><p>要进行null的等于判断时，须使用is null或is not null，null只能通过is null或者is not null来判断，其它操作符与null操作都是false。 </p>
 <p>例子：<br>select * from bl_ip_dt where amount &lt;&gt; 800,这条语句查不出amount等于null 的记录，<br>select * from bl_ip_dt where amount &lt;&gt; 800 or amount is null 才是可以的.</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.cnblogs.com/1011004519/p/9875060.html" target="_blank" rel="noopener">sql中的等于和不等于， ‘=’ ,’!=’,’&lt;&gt;’,’is null’等</a></p>
 
       
     </div>
@@ -602,8 +608,8 @@
     
     <div class="sidebar-inner">
       <div id="music163player">
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=413812448&auto=0&height=66"></iframe>
-        </div>
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=413812448&auto=0&height=66"></iframe>
+      </div>
       
 
       
@@ -701,7 +707,7 @@
               <span class="links-of-author-item">
                 <a href="https://www.zhihu.com/people/rhl2016/activities" target="_blank" title="知乎">
                   
-                    <i class="fa fa-fw fa-zhihu"></i>
+                    <i class="fa fa-fw fa-apple"></i>
                   
                     
                       知乎
@@ -712,7 +718,7 @@
               <span class="links-of-author-item">
                 <a href="http://rhl2008.zcool.com.cn/" target="_blank" title="站酷">
                   
-                    <i class="fa fa-fw fa-lock"></i>
+                    <i class="fa fa-fw fa-apple"></i>
                   
                     
                       站酷
@@ -770,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#等于："><span class="nav-number">1.</span> <span class="nav-text">等于：=</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不等于：尽量使用-lt-gt-表示不等于。"><span class="nav-number">2.</span> <span class="nav-text">不等于：尽量使用&lt;&gt;表示不等于。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#is-null和is-not-null"><span class="nav-number">3.</span> <span class="nav-text">is null和is not null</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#等于："><span class="nav-number">1.</span> <span class="nav-text">等于：=</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不等于：尽量使用-lt-gt-表示不等于。"><span class="nav-number">2.</span> <span class="nav-text">不等于：尽量使用&lt;&gt;表示不等于。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IS-NULL和IS-NOT-NULL"><span class="nav-number">3.</span> <span class="nav-text">IS NULL和IS NOT NULL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
@@ -869,7 +875,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="true"></script>
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
